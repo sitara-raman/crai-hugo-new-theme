@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW4VEP0VKF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW4VEP0VKF');
+</script>
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>CeRAI - in the News</h2>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row justify-content-center">
+      
+        {{ range .Pages }}
+        <div class="col-lg-3 col-md-6 mb-10 mb-lg-10 text-center news-card">
+          {{ if .Params.link }}
+            <a href="{{ .Params.link }}" target="_blank"><h4 class="mb-10" style="font-weight: bold; margin-top: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{ .Params.title }}</h4></a>
+          {{ else }}
+            <a href="{{ .Permalink }}"><h4 class="mb-10" style="font-weight: bold; margin-top: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">{{ .Params.title }}</h4></a>
+          {{ end }}
+          <br>
+          <h6 style="margin-bottom: 20px;"><i class="tf-ion-calendar"></i> {{ dateFormat "Jan 2, 2006" .Params.date }} &nbsp;&nbsp; | &nbsp;&nbsp; <i class="tf-ion-ios-book-outline"></i> {{ .Params.publisher }}</h6>
+        </div>
+        <br>
+        {{ end }}
+    
+    </div>
+  </div>
+</section>
+{{ end }}
+
+
+
+

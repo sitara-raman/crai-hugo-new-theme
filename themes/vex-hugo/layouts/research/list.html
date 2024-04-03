@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW4VEP0VKF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW4VEP0VKF');
+</script>
+
+
+<style>
+  .breadcrumb
+  {
+    padding: .6rem 1.2rem;
+line-height: 2.1rem;
+font-size: 1.2rem;
+color: #000;
+  }
+</style>
+<section class="feature-list section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb" style="background-color:white !important">
+            <li class="breadcrumb-item"><a href="/" style="text-decoration: none !important">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Themes</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading" style="padding-bottom: 0px;">
+          <h2>{{ .Title | markdownify }}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="pushin">
+      <div class="pushin-scene">
+        <div class="pushin-layer">
+          <img height="100%" src="/images/research-themes/all-themes.png" />
+        </div>
+        {{ range $index, $element := .Pages }}
+        <div class="pushin-layer">
+          <img height="40%" src="{{ .Params.image | absURL }}" />
+          <div class="centered">
+            {{ .Content }}
+            <a href="/tags/{{ index .Params.reftags 0 }}" class="btn btn-main btn-main-sm">View Projects</a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

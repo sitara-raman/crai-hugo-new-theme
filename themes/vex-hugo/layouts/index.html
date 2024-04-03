@@ -1,0 +1,50 @@
+
+
+{{ define "main" }}
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW4VEP0VKF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW4VEP0VKF');
+</script>
+
+
+{{- partial "ticker.html" .}}
+
+{{- partial "carousel.html" .}}
+
+  {{- partial "banner.html" . }}
+
+
+  {{- partial "features.html" . }}
+
+  {{- partial "promo.html" . }}
+
+  {{- partial "about-product.html" . }}
+
+  {{- partial "products.html" . }}
+
+  {{- partial "subscription.html" . }}
+
+  {{- partial "activities.html" . }}
+
+  <!-- <section class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        {{- partial "news-home.html" . }}
+      </div>
+    </div>
+  </section>
+  <section class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        {{- partial "events-home.html" . }}
+      </div>
+    </div>
+  </section> -->
+
+{{ end }}
